@@ -1,21 +1,25 @@
 import company from '../../models/modelFunctions/companyModelFunction';
 import companyJoi from './privateJoiSchemas/companyJoiSchema';
 import chalkConfig from '../../utils/chalkConfig';
+
+
 export default async (req,res) => {
     try {
-        const validate = await companyJoi.validateAsync({
+        let validate = await companyJoi.validateAsync({
             name: req.body.name,
             location: req.body.location,
             country: req.body.country,
             phone: req.body.phone,
             expertise: req.body.expertise
+        });
+        let companyData = await company.findOneAndUpdate({name: req.body.refName}, validate, {new : true});
+        res.json({
+            status: 200,
+            data: companyData
         })
-        const companyData = await company.create(validate)
-        companyData = await company.findOne({name: validate.name}).populate('expertise').exec()
-        res.json(companyData)
     }
-    catch(err) {
-        console.log(chalkConfig.danger(err))
-        res.status(400).json(err)
+    catch(err){
+        console.log(chalkConfig.danger(err));
+        res.status(400).json(err);
     }
 }

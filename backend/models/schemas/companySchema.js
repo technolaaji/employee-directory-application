@@ -1,11 +1,18 @@
 import mongoose from 'mongoose'
 
 const company = mongoose.Schema({
-    name: String,
+    name: {
+        type: String,
+        required: true,
+        unique: true
+    },
     location: String,
     country: String,
     phone: Number,
-    expertise: [{type: String}]
+    expertise: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'expertise'
+    }]
 })
 
 export default company

@@ -3,7 +3,7 @@ import { MONGO_URL } from 'babel-dotenv'
 import chalkConfig from './chalkConfig';
 
 export const connectToDB = () => {
-    mongoose.connect(MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+    mongoose.connect(MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true ,useFindAndModify: false, 'useCreateIndex': true })
 
     mongoose.connection.on('connected', () => {
         console.log(chalkConfig.success("Mongoose is connected properly to your MongoDB database."))

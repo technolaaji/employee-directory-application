@@ -7,5 +7,6 @@ export default Joi.object({
     company: Joi.string().required(),
     jobTitle: Joi.string().required(),
     picture: Joi.string(),
-    location: Joi.string().required()
+    location: Joi.string().required(),
+    email: Joi.string().email()
 })

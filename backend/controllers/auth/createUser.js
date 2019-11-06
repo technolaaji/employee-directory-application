@@ -8,7 +8,7 @@ export default async (req,res) => {
             email: req.body.email,
             password: req.body.password
         });
-        let userData = await user.create(validate)
+        await user.create(validate)
         res.json({
             message: 'user created successfully'
         })

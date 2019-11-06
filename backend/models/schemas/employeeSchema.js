@@ -1,5 +1,4 @@
 import mongoose from 'mongoose';
-import bcrypt from 'bcrypt'
 
 const employee = mongoose.Schema({
     firstName: {
@@ -21,8 +20,13 @@ const employee = mongoose.Schema({
         required: true
     },
     picture: String,
-    location: String
+    location: String,
+    email: {
+        type: String,
+        required: true,
+        unique: true
+    }
 })
 
 
-export default employee
+export default employee 
