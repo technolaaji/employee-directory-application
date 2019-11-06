@@ -61,4 +61,4 @@ typings/
 .next
 
 # additional ignores
-dist
+backend/dist
