@@ -3,7 +3,7 @@ import { JWT_SECRET } from 'babel-dotenv'
 
 export default async (req,res,next) => {
     const token = req.headers["x-access-token"] || req.headers["authorization"];
-    if (!token) return res.status(401).send("Access denied. No token provided.");
+    if (!token) return res.status(401).send("Access denied.");
     try {
         let tokenPart = token.split(' ')[1];
         const decode = jwt.verify(tokenPart,JWT_SECRET);
@@ -14,3 +14,9 @@ export default async (req,res,next) => {
         res.status(400).json({message: "Invalid token"})
     }
 }
+
+// decode returns back the decoded jwt token, mainly holds the email
+// if you wish to use the email, it adds to the req in all in the private section
+// a user block that contains user's email so you can call it by writing 'req.user.email'
+// it will be available to all the routes in private because this is a middleware function and
+// it passes any data to the other routes

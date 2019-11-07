@@ -16,3 +16,8 @@ export default async (req,res) => {
         res.status(400).json(err)
     }
 }
+
+// the main reason why it deletes also the employee data as well since 
+// a user can be and not be an employee
+// if a user is not an employee then this additional function will do nothing
+// but it was created for general usecases 

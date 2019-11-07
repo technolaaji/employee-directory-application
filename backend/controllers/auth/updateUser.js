@@ -11,11 +11,11 @@ export default async(req,res) => {
             password: req.body.password
         });
 
-        await userModel.findOneAndUpdate({email: req.body.oldEmail}, {
+        await userModel.findOneAndUpdate({email: req.user.email}, {
             email: validate.email,
             password: bcrypt.hashSync(req.body.password, 10)
         });
-        await employeeModel.findOneAndUpdate({email: req.body.oldEmail}, {
+        await employeeModel.findOneAndUpdate({email: req.user.email}, {
             email: validate.email
         })
         res.json({
@@ -28,3 +28,7 @@ export default async(req,res) => {
         res.status(400).json(err)
     }
 } 
+
+// this function updates the user's email and if he/she is also an employee it also updates it
+// the main reason why the user is not integrated to the employee is due to the fact that 
+// an employee is a user but there are users that are not employees

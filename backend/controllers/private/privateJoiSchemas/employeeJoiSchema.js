@@ -10,3 +10,9 @@ export default Joi.object({
     location: Joi.string().required(),
     email: Joi.string().email()
 })
+
+// the picture here is a string tho it should be an image on the server 
+// but to make it simple, an employee provides a url for his/her pic
+// it is faster and efficient on the backend side
+
+// note: this setting might be updated to feature Amazon S3 and inject the image's url to the employee's profile
