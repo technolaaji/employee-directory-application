@@ -13,6 +13,7 @@ export default async (req,res) => {
             jobTitle: req.body.jobTitle,
             picture: req.body.picture,
             location: req.body.location,
+            skills: req.body.skills
         });
         let employeeData = await employee.findOneAndUpdate({email: req.body.email},validate, {new : true});
         res.json({

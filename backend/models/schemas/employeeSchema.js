@@ -10,11 +10,11 @@ const employee = mongoose.Schema({
         type: String,
         required: true
     },
-    company: {
+    company: [{
         type: mongoose.Schema.Types.ObjectId,
         required: true,
         ref: 'company'
-    },
+    }],
     jobTitle: {
         type: String,
         required: true
@@ -25,7 +25,11 @@ const employee = mongoose.Schema({
         type: String,
         required: true,
         unique: true
-    }
+    },
+    skills: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'skill'
+    }]
 })
 
 

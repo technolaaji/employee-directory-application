@@ -12,10 +12,11 @@ export default async (req,res) => {
             jobTitle: req.body.jobTitle,
             picture: req.body.picture,
             location: req.body.location,
-            email: req.body.email
+            email: req.body.email,
+            skills: req.body.skills
         })
         let employeeData = await employee.create(validate)
-        employeeData = await employee.findOne({email: validate.email}).populate('company').exec()
+        employeeData = await employee.findOne({email: validate.email}).populate('company').populate('skill').exec()
         res.json(employeeData)
     }
     catch(err){
