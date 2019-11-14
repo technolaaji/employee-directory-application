@@ -5,18 +5,18 @@ import employeeModel from '../../models/modelFunctions/employeeModelFunction';
 import bcrypt from 'bcrypt'
 import express from 'express'
 import { userRequestInterface } from '../../interfaces/userRequestInterface';
-export default async(req: userRequestInterface, res: express.Response) => {
+export default async(req: express.Request, res: express.Response) => {
     try {
         let validate = await userJoi.validateAsync({
             email: req.body.email,
             password: req.body.password
         });
 
-        await userModel.findOneAndUpdate({email: req.email}, {
+        await userModel.findOneAndUpdate({email: res.locals.email}, {
             email: validate.email,
             password: bcrypt.hashSync(req.body.password, 10)
         });
-        await employeeModel.findOneAndUpdate({email: req.email}, {
+        await employeeModel.findOneAndUpdate({email: res.locals.email}, {
             email: validate.email
         })
         return res.json({

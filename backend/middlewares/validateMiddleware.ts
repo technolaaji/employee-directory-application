@@ -1,15 +1,15 @@
 import jwt from 'jsonwebtoken';
-import {Response, NextFunction} from 'express'
+import {Response, NextFunction, Request } from 'express'
 import { userRequestInterface } from '../interfaces/userRequestInterface';
 
-export default async (req: userRequestInterface, res: Response, next: NextFunction) => {
+export default async (req: Request, res: Response, next: NextFunction) => {
     const token = req.headers["x-access-token"] || req.headers["authorization"];
     if (!token) return res.status(401).send("Access denied.");
     try {
         let tokenPart = (token as String).split(' ')[1];
         const decode = jwt.verify(tokenPart,String(process.env.JWT_SECRET));
         let userMail = Object(decode).email;
-        req.email = String(userMail);
+        res.locals.email = userMail;
 
         next();
     }
