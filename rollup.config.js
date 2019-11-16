@@ -1,4 +1,4 @@
-import typescript from 'rollup-plugin-typescript2';
+import typescript from 'rollup-plugin-typescript';
 import commonjs from 'rollup-plugin-commonjs';
 import { uglify } from "rollup-plugin-uglify";
 import resolve from 'rollup-plugin-node-resolve';
@@ -10,7 +10,7 @@ export default {
         file: './dist-back/index.js'
       },
     plugins: [
-        typescript(),
+        typescript({lib: ["ESNext"], target: "es3"}),
         commonjs(),
         uglify(),
         resolve(),
