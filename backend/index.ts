@@ -7,7 +7,7 @@ import rootRoute from './routes/index';
 import publicRoute from './routes/public';
 import privateRoute from './routes/private';
 import authRoute from './routes/auth';
-
+import path from 'path'
 import chalkConfig from './utils/chalkConfig';
 import { connectToDB } from './utils/connectToDB';
 
@@ -16,6 +16,8 @@ import * as dotenv from "dotenv";
 dotenv.config();
 
 let app: express.Application = express();
+app.set("view options", {layout: false});
+app.use(express.static(path.join(__dirname, '../', 'dist-front')));
 app.use(logger('combined'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
