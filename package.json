@@ -11,8 +11,8 @@
     "back-build-remove": "rimraf dist-back",
     "front-build-remove": "rimraf dist-front",
     "build": "npm install && npm run back-build-remove && npm run front-build-remove && npm run back-build && npm run front-build && cd dist-back",
-    "serve": "npm run build && cd dist-back && node index.js",
-    "start": "concurrently \"npm run dev-back-start\" \"npm run dev-front-start\""
+    "start": "npm run build && cd dist-back && node index.js",
+    "dev": "concurrently \"npm run dev-back-start\" \"npm run dev-front-start\""
   },
   "repository": {
     "type": "git",
