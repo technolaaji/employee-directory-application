@@ -16,5 +16,5 @@ export default {
         resolve(),
         json()
     ],
-    external: [ 'express', 'morgan', 'body-parser', 'path', 'dotenv', 'chalk', 'mongoose', 'jsonwebtoken', 'bcrypt', '@hapi/joi' ]
+    external: [ 'express', 'morgan', 'body-parser', 'path', 'dotenv', 'chalk', 'mongoose', 'jsonwebtoken', 'bcrypt', '@hapi/joi', 'lodash' ]
 }
