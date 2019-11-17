@@ -11,7 +11,7 @@
     "back-build-remove": "rimraf dist-back",
     "front-build-remove": "rimraf dist-front",
     "build": "npm install && npm run back-build-remove && npm run front-build-remove && npm run back-build && npm run front-build",
-    "start": "npm run build && cd dist-back && node index.js",
+    "start": "cd dist-back && node index.js",
     "dev": "concurrently \"npm run dev-back-start\" \"npm run dev-front-start\""
   },
   "repository": {
@@ -45,7 +45,12 @@
     "react": "^16.12.0",
     "react-collapse": "^5.0.0",
     "react-dom": "^16.12.0",
-    "react-media": "^1.10.0",
+    "react-media": "^1.10.0"
+  },
+  "devDependencies": {
+    "concurrently": "^5.0.0",
+    "nodemon": "^1.19.4",
+    "ts-node": "^8.5.0",
     "rimraf": "^3.0.0",
     "@types/bcrypt": "^3.0.0",
     "@types/body-parser": "^1.17.1",
@@ -68,10 +73,5 @@
     "rollup-plugin-typescript2": "^0.25.2",
     "rollup-plugin-uglify": "^6.0.3",
     "typescript": "^3.7.2"
-  },
-  "devDependencies": {
-    "concurrently": "^5.0.0",
-    "nodemon": "^1.19.4",
-    "ts-node": "^8.5.0"
   }
 }
