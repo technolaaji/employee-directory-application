@@ -28,6 +28,6 @@ app.use('/private', privateRoute);
 app.use('/auth', authRoute);
 
 app.listen(PORT,() => {
-    console.log(chalkConfig.success("Your server is running on port 8000"))
+    console.log(chalkConfig.success(`Your server is running on port ${PORT}`))
     connectToDB()
 })
