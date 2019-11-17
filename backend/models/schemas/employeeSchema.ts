@@ -1,23 +1,24 @@
 import mongoose from 'mongoose';
 
+
 const employee = new mongoose.Schema({
     firstName: {
         type: String,
-        required: true
+        required: true,
     },
     middleName: String,
     lastName: {
         type: String,
-        required: true
+        required: true,
     },
-    company: [{
+    company: {
         type: mongoose.Schema.Types.ObjectId,
         required: true,
-        ref: 'company'
-    }],
+        ref: 'company',
+    },
     jobTitle: {
         type: String,
-        required: true
+        required: true,
     },
     picture: String,
     location: String,
@@ -28,9 +29,8 @@ const employee = new mongoose.Schema({
     },
     skills: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'skill'
+        ref: 'skill',
     }]
 })
-
 
 export default employee 

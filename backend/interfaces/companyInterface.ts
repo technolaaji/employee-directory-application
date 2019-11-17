@@ -5,5 +5,6 @@ export interface companyInterface extends mongoose.Document{
     location: String,
     country: String,
     phone: Number,
-    expertise: Array<String>
+    expertise: Array<String>,
+    fuzzySearch: () => object
 }

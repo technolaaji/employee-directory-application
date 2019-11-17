@@ -9,5 +9,6 @@ export interface employeeInterface extends mongoose.Document {
     picture: String,
     location: String,
     email:String,
-    skills: Array<String>
+    skills: Array<String>,
+    fuzzySearch: Function
 }
