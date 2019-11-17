@@ -10,6 +10,7 @@
     "front-build": "parcel build frontend/src/index.html --out-dir dist-front",
     "back-build-remove": "rimraf dist-back",
     "front-build-remove": "rimraf dist-front",
+    "build:test": "npm install && npm run back-build-remove && npm run front-build-remove && npm run back-build && npm run front-build && cd dist-back",
     "build": "npm install && npm run back-build-remove && npm run front-build-remove && npm run back-build && npm run front-build && cd dist-back && node index.js",
     "start": "concurrently \"npm run dev-back-start\" \"npm run dev-front-start\""
   },
