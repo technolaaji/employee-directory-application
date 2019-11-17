@@ -5,7 +5,7 @@
   "main": "index.ts",
   "scripts": {
     "dev-back-start": "nodemon backend/index.ts",
-    "back-build": "rollup -c",
+    "back-build": "tsc -p tsconfig.json",
     "dev-front-start": "parcel frontend/src/index.html",
     "front-build": "parcel build frontend/src/index.html --out-dir dist-front",
     "back-build-remove": "rimraf dist-back",
