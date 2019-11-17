@@ -1,6 +1,3 @@
-let port = String(process.env.PORT);
-if (port == null || port == "") {
-  port = String(8000);
-}
+let port = process.env.PORT || 8000;
 
 export default port
