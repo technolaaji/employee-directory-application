@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { gridDiv, headerText, burgerDiv, dropdownDiv, linkText } from '../../styles/mobileNavbar';
+import { checkAuth, deleteToken } from '../../util/authentication';
 import {UnmountClosed} from 'react-collapse';
 
 export default class MobileNavbar extends Component {
@@ -26,8 +27,12 @@ export default class MobileNavbar extends Component {
             <UnmountClosed isOpened={this.state.open}>
                     <div className={dropdownDiv}>
                     <p className={linkText}>Home</p>
-                    <p className={linkText}>Sign Up</p>
-                    <p className={linkText}>Log In</p>
+                    {
+                        checkAuth() ? <p className={linkText}>My Account</p> : <p className={linkText}>Sign Up</p>
+                    }
+                    {
+                        checkAuth() ? <p onClick={deleteToken} className={linkText}>Log out</p> : <p className={linkText}>Log In</p>
+                    }
                     </div>
             </UnmountClosed>
             </React.Fragment>
