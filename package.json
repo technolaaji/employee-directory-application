@@ -46,9 +46,7 @@
     "react-collapse": "^5.0.0",
     "react-dom": "^16.12.0",
     "react-media": "^1.10.0",
-    "rimraf": "^3.0.0"
-  },
-  "devDependencies": {
+    "rimraf": "^3.0.0",
     "@types/bcrypt": "^3.0.0",
     "@types/body-parser": "^1.17.1",
     "@types/dotenv": "^8.2.0",
@@ -62,8 +60,6 @@
     "@types/react": "^16.9.11",
     "@types/react-collapse": "^5.0.0",
     "@types/react-dom": "^16.9.4",
-    "concurrently": "^5.0.0",
-    "nodemon": "^1.19.4",
     "rollup": "^1.27.0",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-json": "^4.0.0",
@@ -71,7 +67,11 @@
     "rollup-plugin-typescript": "^1.0.1",
     "rollup-plugin-typescript2": "^0.25.2",
     "rollup-plugin-uglify": "^6.0.3",
-    "ts-node": "^8.5.0",
     "typescript": "^3.7.2"
+  },
+  "devDependencies": {
+    "concurrently": "^5.0.0",
+    "nodemon": "^1.19.4",
+    "ts-node": "^8.5.0"
   }
 }
