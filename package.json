@@ -10,7 +10,7 @@
     "front-build": "parcel build frontend/src/index.html --out-dir dist-front",
     "back-build-remove": "rimraf dist-back",
     "front-build-remove": "rimraf dist-front",
-    "build": "npm install && npm run back-build-remove && npm run front-build-remove && npm run back-build && npm run front-build && cd dist-back",
+    "build": "npm install && npm run back-build-remove && npm run front-build-remove && npm run back-build && npm run front-build",
     "start": "npm run build && cd dist-back && node index.js",
     "dev": "concurrently \"npm run dev-back-start\" \"npm run dev-front-start\""
   },
@@ -45,7 +45,8 @@
     "react": "^16.12.0",
     "react-collapse": "^5.0.0",
     "react-dom": "^16.12.0",
-    "react-media": "^1.10.0"
+    "react-media": "^1.10.0",
+    "rimraf": "^3.0.0"
   },
   "devDependencies": {
     "@types/bcrypt": "^3.0.0",
@@ -63,7 +64,6 @@
     "@types/react-dom": "^16.9.4",
     "concurrently": "^5.0.0",
     "nodemon": "^1.19.4",
-    "rimraf": "^3.0.0",
     "rollup": "^1.27.0",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-json": "^4.0.0",
