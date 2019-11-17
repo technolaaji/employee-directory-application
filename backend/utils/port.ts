@@ -1,3 +1,3 @@
-let port = process.env.PORT || 8000;
+let port = process.env.PORT || 5000;
 
 export default port
