@@ -4,12 +4,10 @@ export default Joi.object({
   firstName: Joi.string().required(),
   middleName: Joi.string(),
   lastName: Joi.string().required(),
-  company: Joi.string().required(),
   jobTitle: Joi.string().required(),
   picture: Joi.string(),
   location: Joi.string().required(),
-  email: Joi.string().email(),
-  skills: Joi.array().items(Joi.string())
+  email: Joi.string().email()
 });
 
 // the picture here is a string tho it should be an image on the server

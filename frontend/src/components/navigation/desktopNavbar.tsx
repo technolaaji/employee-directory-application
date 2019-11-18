@@ -20,7 +20,12 @@ export default class DesktopNavbar extends Component {
             Home
           </p>
           {checkAuth() ? (
-            <p className={linkText}>My Account</p>
+            <p
+              onClick={() => navigate("/myaccount/employee")}
+              className={linkText}
+            >
+              My Account
+            </p>
           ) : (
             <p onClick={() => navigate("/signup")} className={linkText}>
               Sign Up
