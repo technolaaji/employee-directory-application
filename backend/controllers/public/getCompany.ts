@@ -17,6 +17,6 @@ export default async (req: Request, res: Response) => {
     }
     catch(err){
         console.log(chalkConfig.danger(err))
-        res.status(400).json(err);
+        res.status(400).json(err); 
     }
 }

@@ -1,10 +1,15 @@
-import React from 'react'
-import Navbar from './components/navigation/Navbar'
+import React, { Component } from "react";
+import Navbar from "./components/navigation/Navbar";
+import { Router } from "@reach/router";
+import Frontpage from "./components/Frontpage";
 
-export default function App() {
+export default class App extends Component {
+  render() {
     return (
-        <div>
-            <Navbar />
-        </div>
-    )
+      <div>
+        <Navbar />
+        <Frontpage />
+      </div>
+    );
+  }
 }

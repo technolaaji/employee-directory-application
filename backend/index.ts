@@ -11,6 +11,7 @@ import path from 'path'
 import chalkConfig from './utils/chalkConfig';
 import { connectToDB } from './utils/connectToDB';
 import PORT from './utils/port';
+const cors = require("cors");
 
 import * as dotenv from "dotenv";
 
@@ -22,6 +23,7 @@ app.use(express.static(path.join(__dirname, '../', 'dist-front')));
 app.use(logger('combined'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
+app.use(cors())
 app.use('/', rootRoute);
 app.use('/public', publicRoute);
 app.use('/private', privateRoute);
