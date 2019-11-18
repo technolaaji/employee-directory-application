@@ -23,7 +23,7 @@
         "tslint-check": "tslint-config-prettier-check ./tslint.json",
         "prettier-check:back": "prettier --parser typescript --check 'backend/**/*.ts'",
         "prettier-check:front": "prettier --parser typescript --check 'frontend/**/*{.ts,.tsx}'",
-        "prettier-check:all": "npm run prettier:back && npm run prettier:front",
+        "prettier-check:all": "npm run prettier-check:back && npm run prettier-check:front",
         "prettier-fix:back": "prettier --parser typescript --write 'backend/**/*.ts'",
         "prettier-fix:front": "prettier --parser typescript --write 'frontend/**/*{.ts,.tsx}'",
         "prettier-fix:all": "npm run prettier-fix:back && npm run prettier-fix:front"
