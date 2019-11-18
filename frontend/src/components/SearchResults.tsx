@@ -9,22 +9,31 @@ export default function SearchResults(props: {
 }) {
   return (
     <div className={searchDiv}>
-      {props.status === "company" ? (
-        props.data.map(item => {
-          return (
-            <CompanyCard
-              key={item._id}
-              name={item.name}
-              location={item.location}
-              country={item.country}
-              phone={item.phone}
-            />
-          );
-        })
-      ) : props.data.map(item => {
-        return <EmployeeCard key={item._id} first={item.firstName} middle={item.middleName} last={item.lastName} company={item.company.name} location={item.location} job={item.jobTitle} image={item.picture} />
-      })
-      }
+      {props.status === "company"
+        ? props.data.map(item => {
+            return (
+              <CompanyCard
+                key={item._id}
+                name={item.name}
+                location={item.location}
+                country={item.country}
+                phone={item.phone}
+              />
+            );
+          })
+        : props.data.map(item => {
+            return (
+              <EmployeeCard
+                key={item._id}
+                first={item.firstName}
+                middle={item.middleName}
+                last={item.lastName}
+                location={item.location}
+                job={item.jobTitle}
+                image={item.picture}
+              />
+            );
+          })}
     </div>
   );
 }

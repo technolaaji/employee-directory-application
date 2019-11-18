@@ -6,7 +6,7 @@ export default function EmployeeCard(props: {
   middle: string;
   last: string;
   location: string;
-  job: string
+  job: string;
   image: string;
 }) {
   return (
@@ -16,9 +16,7 @@ export default function EmployeeCard(props: {
         {props.first} {props.middle} {props.last}
       </h1>
       <p>{props.job}</p>
-      <p>
-        {props.location} 
-      </p>
+      <p>{props.location}</p>
     </div>
   );
 }

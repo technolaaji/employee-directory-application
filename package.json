@@ -43,6 +43,8 @@
     "morgan": "^1.9.1",
     "parcel-bundler": "^1.12.4",
     "react": "^16.12.0",
+    "react-alert": "^6.0.0",
+    "react-alert-template-basic": "^1.0.0",
     "react-collapse": "^5.0.0",
     "react-dom": "^16.12.0",
     "react-media": "^1.10.0"
@@ -61,6 +63,7 @@
     "@types/node": "^12.12.7",
     "@types/reach__router": "^1.2.6",
     "@types/react": "^16.9.11",
+    "@types/react-alert": "^5.2.0",
     "@types/react-collapse": "^5.0.0",
     "@types/react-dom": "^16.9.4",
     "@typescript-eslint/eslint-plugin": "^2.7.0",

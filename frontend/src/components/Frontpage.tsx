@@ -4,8 +4,9 @@ import Loader from "./loader";
 import SearchBar from "./SearchBar";
 import Toggler from "./Toggler";
 import SearchResults from "./SearchResults";
+import { RouteComponentProps } from "@reach/router";
 
-export default class Frontpage extends Component {
+export default class Frontpage extends Component<RouteComponentProps> {
   state = {
     loading: false,
     data: [],
