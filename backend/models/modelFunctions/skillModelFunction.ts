@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import skillSchema from '../schemas/skillsSchema';
 import { skillInterface } from '../../interfaces/skillInterface';
+import skillSchema from '../schemas/skillsSchema';
 
-export default mongoose.model<skillInterface>('skill', skillSchema)
+export default mongoose.model<skillInterface>('skill', skillSchema);

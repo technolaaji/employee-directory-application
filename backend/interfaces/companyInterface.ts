@@ -1,10 +1,10 @@
-import mongoose from 'mongoose'
+import mongoose from 'mongoose';
 
-export interface companyInterface extends mongoose.Document{
-    name: String,
-    location: String,
-    country: String,
-    phone: Number,
-    expertise: Array<String>,
-    fuzzySearch: () => object
+export interface companyInterface extends mongoose.Document {
+    name: String;
+    location: String;
+    country: String;
+    phone: Number;
+    expertise: String[];
+    fuzzySearch: () => object;
 }

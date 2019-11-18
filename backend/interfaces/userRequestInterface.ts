@@ -1,5 +1,5 @@
-import { Request } from 'express'
+import { Request } from 'express';
 
 export interface userRequestInterface extends Request {
-    email: String
+    email: String;
 }

@@ -1,7 +1,7 @@
-import express from 'express'
+import express from 'express';
 import createExpertise from '../../controllers/private/createExpertise';
-import updateExpertise from '../../controllers/private/updateExpertise';
 import deleteExpertise from '../../controllers/private/deleteExpertise';
+import updateExpertise from '../../controllers/private/updateExpertise';
 
 const router: express.Router = express.Router();
 
@@ -11,4 +11,4 @@ router.put('/update', updateExpertise);
 
 router.delete('/delete', deleteExpertise);
 
-export default router
+export default router;

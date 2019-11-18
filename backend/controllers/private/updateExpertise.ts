@@ -1,21 +1,24 @@
-import expertiseJoi from './privateJoiSchemas/expertiseJoiSchema'
-import chalkConfig from '../../utils/chalkConfig';
+import express from 'express';
 import expertise from '../../models/modelFunctions/expertiseModelFunction';
-import express from 'express'
+import chalkConfig from '../../utils/chalkConfig';
+import expertiseJoi from './privateJoiSchemas/expertiseJoiSchema';
 
 export default async (req: express.Request, res: express.Response) => {
     try {
-        let validate = await expertiseJoi.validateAsync({
-            title: req.body.title
+        const validate = await expertiseJoi.validateAsync({
+            title: req.body.title,
         });
-        let expertiseData = await expertise.findOneAndUpdate({title: req.body.oldTitle}, validate, {new : true});
+        const expertiseData = await expertise.findOneAndUpdate(
+            { title: req.body.oldTitle },
+            validate,
+            { new: true }
+        );
         res.json({
             status: 200,
-            expertise: expertiseData
-        })
+            expertise: expertiseData,
+        });
+    } catch (err) {
+        console.log(chalkConfig.danger(err));
+        res.json(400).json(err);
     }
-    catch(err){
-        console.log(chalkConfig.danger(err))
-        res.json(400).json(err)
-    }
-}
+};

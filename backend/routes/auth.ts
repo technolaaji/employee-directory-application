@@ -1,10 +1,10 @@
-import express from 'express'
+import express from 'express';
+import authority from './innerAuthRoute/authorize';
 import create from './innerAuthRoute/create';
-import update from './innerAuthRoute/update';
 // turns out delete is a reserved keyword
 import deleteRoute from './innerAuthRoute/delete';
+import update from './innerAuthRoute/update';
 import validate from './innerAuthRoute/validate';
-import authority from './innerAuthRoute/authorize';
 
 const router: express.Router = express.Router();
 
@@ -18,4 +18,4 @@ router.use('/validate', validate);
 
 router.use('/authority', authority);
 
-export default router
+export default router;

@@ -1,10 +1,8 @@
-import express from 'express'
+import express from 'express';
 import getEmployee from '../../controllers/public/getEmployee';
 
-const router : express.Router = express.Router();
+const router: express.Router = express.Router();
 
+router.post('/search', getEmployee);
 
-router.post('/search',getEmployee);
-
-
-export default router
+export default router;

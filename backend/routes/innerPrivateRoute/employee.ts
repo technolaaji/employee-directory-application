@@ -1,14 +1,14 @@
-import express from 'express'
+import express from 'express';
 import createEmployee from '../../controllers/private/createEmployee';
-import updateEmployee from '../../controllers/private/updateEmployee';
 import deleteEmployee from '../../controllers/private/deleteEmployee';
+import updateEmployee from '../../controllers/private/updateEmployee';
 
 const router: express.Router = express.Router();
 
-router.post('/create', createEmployee)
+router.post('/create', createEmployee);
 
 router.put('/update', updateEmployee);
 
 router.delete('/delete', deleteEmployee);
 
-export default router
+export default router;

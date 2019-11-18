@@ -1,3 +1,3 @@
-let port = process.env.PORT || 5000;
+const port = process.env.PORT || 5000;
 
-export default port
+export default port;

@@ -1,13 +1,13 @@
-import Joi from "@hapi/joi";
+import Joi from '@hapi/joi';
 
 export default Joi.object({
-  firstName: Joi.string().required(),
-  middleName: Joi.string(),
-  lastName: Joi.string().required(),
-  jobTitle: Joi.string().required(),
-  picture: Joi.string(),
-  location: Joi.string().required(),
-  email: Joi.string().email()
+    firstName: Joi.string().required(),
+    middleName: Joi.string(),
+    lastName: Joi.string().required(),
+    jobTitle: Joi.string().required(),
+    picture: Joi.string(),
+    location: Joi.string().required(),
+    email: Joi.string().email(),
 });
 
 // the picture here is a string tho it should be an image on the server

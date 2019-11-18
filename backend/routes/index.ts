@@ -1,11 +1,9 @@
-import express from 'express'
+import express from 'express';
 
 const router: express.Router = express.Router();
 
+router.get('/', (req: express.Request, res: express.Response) => {
+    res.render('./index.html');
+});
 
-router.get('/', (req: express.Request,res: express.Response) => {
-    res.render('./index.html')
-})
- 
-
-export default router
+export default router;

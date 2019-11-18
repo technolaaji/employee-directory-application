@@ -1,5 +1,5 @@
-import mongoose from 'mongoose'
+import mongoose from 'mongoose';
 
 export interface skillInterface extends mongoose.Document {
-    title: String
+    title: String;
 }
