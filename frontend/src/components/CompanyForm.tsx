@@ -27,7 +27,7 @@ class CompanyForm extends Component {
     e.preventDefault();
     postRequest("/private/company/create", this.state)
       .then(() => {
-        this.props.alert.show("Employee added successfully");
+        this.props.alert.show("company added successfully");
       })
       .catch(() => {
         this.props.alert.show(
