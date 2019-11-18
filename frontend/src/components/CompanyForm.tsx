@@ -11,7 +11,11 @@ import {
 import { postRequest } from "../util/api";
 import { withAlert, AlertManager } from "react-alert";
 
-class CompanyForm extends Component {
+type Props = {
+  alert: { show: Function };
+};
+
+class CompanyForm extends Component<Props> {
   state = {
     name: "",
     location: "",
