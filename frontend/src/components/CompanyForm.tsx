@@ -40,7 +40,7 @@ class CompanyForm extends Component {
     return (
       <div className={formDiv}>
         <div className={formCont}>
-          <h1 className={header}>Sign up</h1>
+          <h1 className={header}>Company creation</h1>
           <form className={formSection} onSubmit={this.onSubmit}>
             <label className={label}>Name</label>
             <input

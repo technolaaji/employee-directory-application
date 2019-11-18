@@ -51,7 +51,7 @@ class EmployeeForm extends Component {
     return (
       <div className={formDiv}>
         <div className={formCont}>
-          <h1 className={header}>Sign up</h1>
+          <h1 className={header}>Employee Creation</h1>
           <form className={formSection} onSubmit={this.onSubmit}>
             <label className={label}>First Name</label>
             <input
