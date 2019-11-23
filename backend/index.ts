@@ -18,7 +18,6 @@ dotenv.config();
 
 const app: express.Application = express();
 app.set('view options', { layout: false });
-app.use(express.static(path.join(__dirname, '../', 'dist-front')));
 app.use(logger('combined'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
