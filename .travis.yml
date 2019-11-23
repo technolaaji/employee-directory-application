@@ -8,7 +8,7 @@ deploy:
       app: employee-directory-app-leb
       script: 'npm run start'
     - provider: script
-      script: netlify deploy -s $NETLIFY_SITE_ID -t $NETLIFY_ACCESS_TOKEN -p frontend/out
+      script: netlify deploy -s $NETLIFY_SITE_ID -t $NETLIFY_ACCESS_TOKEN
       skip_cleanup: true
       on:
           branch: master
