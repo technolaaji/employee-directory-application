@@ -71,3 +71,4 @@ dist
 # Local Netlify folder
 .netlify
 frontend/out
+frontend/.next
