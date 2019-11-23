@@ -68,3 +68,5 @@ dist-back
 dist-front 
 dist 
 .cache 
+# Local Netlify folder
+.netlify
