@@ -70,3 +70,4 @@ dist
 .cache 
 # Local Netlify folder
 .netlify
+frontend/out
