@@ -1,7 +1,10 @@
+import Layout from '../components/Layout';
+import SearchSection from '../components/SearchSection';
+
 const Index = () => (
-    <div>
-        <p>test 1</p>
-    </div>
+    <Layout>
+        <SearchSection />
+    </Layout>
 );
 
 export default Index;

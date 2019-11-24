@@ -2,12 +2,15 @@ import mongoose from 'mongoose';
 
 const company = new mongoose.Schema({
     country: String,
-    location: String,
-    name: {
+    description: String,
+    email: {
         required: true,
         type: String,
         unique: true,
     },
+    image: String,
+    location: String,
+    name: String,
     phone: Number,
     // expertise: [{
     //     type: mongoose.Schema.Types.ObjectId,
