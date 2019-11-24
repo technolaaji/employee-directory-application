@@ -4,13 +4,16 @@ import { uglify } from 'rollup-plugin-uglify';
 import resolve from 'rollup-plugin-node-resolve';
 import json from 'rollup-plugin-json';
 export default {
-    input: './backend/index.ts',
+    input: './index.ts',
     output: {
         format: 'cjs',
         file: './dist-back/index.js',
     },
     plugins: [
-        typescript({ lib: ['ESNext'], target: 'es3' }),
+        typescript({
+            lib: ['ESNext'],
+            target: 'es3',
+        }),
         commonjs(),
         uglify(),
         resolve(),
@@ -28,5 +31,6 @@ export default {
         'bcrypt',
         '@hapi/joi',
         'lodash',
+        'amphtml-validator',
     ],
 };

@@ -13,20 +13,39 @@ import PORT from './utils/port';
 
 import * as dotenv from 'dotenv';
 
+import next from 'next';
+
+const dev = process.env.NODE_ENV !== 'production';
+const nextApp = next({ dev, dir: '../' });
+const handle = nextApp.getRequestHandler();
+
 dotenv.config();
 
-const app: express.Application = express();
-app.set('view options', { layout: false });
-app.use(logger('combined'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cors());
-app.use('/', rootRoute);
-app.use('/public', publicRoute);
-app.use('/private', privateRoute);
-app.use('/auth', authRoute);
+nextApp
+    .prepare()
+    .then(() => {
+        log.warn(chalkConfig.success(`NextJS is configured`));
+        const app: express.Application = express();
+        app.set('view options', { layout: false });
+        app.use(logger('combined'));
+        app.use(bodyParser.json());
+        app.use(bodyParser.urlencoded({ extended: false }));
+        app.use(cors());
+        app.use('/public', publicRoute);
+        app.use('/private', privateRoute);
+        app.use('/auth', authRoute);
+        app.get('*', (req, res) => {
+            return handle(req, res);
+        });
 
-app.listen(PORT, () => {
-    log.warn(chalkConfig.success(`Your server is running on port ${PORT}`));
-    connectToDB();
-});
+        app.listen(PORT, () => {
+            log.warn(
+                chalkConfig.success(`Your server is running on port ${PORT}`)
+            );
+            connectToDB();
+        });
+    })
+    .catch(ex => {
+        log.warn(ex.stack);
+        process.exit(1);
+    });

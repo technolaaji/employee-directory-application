@@ -1,5 +1,4 @@
 import { NextFunction, Request, Response } from 'express';
-import { userRequestInterface } from '../interfaces/userRequestInterface';
 import user from '../models/modelFunctions/userModelFunction';
 
 export default async (req: Request, res: Response, next: NextFunction) => {
