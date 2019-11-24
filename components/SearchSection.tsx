@@ -2,6 +2,7 @@ import fetch from 'isomorphic-unfetch';
 import { useState } from 'react';
 import { Container } from 'react-bootstrap';
 import { mainCont } from '../styles/SearchStyle';
+import EmployeeCard from './EmployeeCard';
 
 const SearchSection = () => {
     const [searchType, updateType] = useState('employee');
@@ -63,9 +64,7 @@ const SearchSection = () => {
                             className="custom-select col-sm-2"
                             id="inlineFormCustomSelect"
                         >
-                            <option selected value="employee">
-                                Employee
-                            </option>
+                            <option value="employee">Employee</option>
                             <option value="company">Company</option>
                         </select>
                         <div className="col-auto my-1">
@@ -78,27 +77,18 @@ const SearchSection = () => {
             </Container>
             <Container className="my-2">
                 <div className="card-columns">
-                    {/* <div className="card">
-                        <img
-                            src="https://picsum.photos/200/300"
-                            className="card-img-top"
-                            alt="..."
-                            style={{ maxHeight: '200px' }}
-                        />
-                        <div className="card-body">
-                            <h5 className="card-title">Card title</h5>
-                            <p className="card-text">
-                                This is a wider card with supporting text below
-                                as a natural lead-in to additional content. This
-                                content is a little bit longer.
-                            </p>
-                            <p className="card-text">
-                                <small className="text-muted">
-                                    Last updated 3 mins ago
-                                </small>
-                            </p>
-                        </div>
-                    </div> */}
+                    {payload !== null &&
+                        payload.map((item: any, index: number) => {
+                            return (
+                                <EmployeeCard
+                                    key={index}
+                                    firstName={item.firstName}
+                                    lastName={item.lastName}
+                                    image={item.picture}
+                                    description={item.description}
+                                />
+                            );
+                        })}
                 </div>
             </Container>
         </>

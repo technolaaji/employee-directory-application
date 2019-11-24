@@ -16,6 +16,6 @@ export default async (req: express.Request, res: express.Response) => {
         // add email verification
     } catch (err) {
         log.warn(chalkConfig.danger(err));
-        res.json(err);
+        res.status(400).json(err);
     }
 };
