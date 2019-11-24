@@ -1,27 +1,27 @@
 import bcrypt from 'bcrypt';
 import mongoose from 'mongoose';
-import { userInt } from '../../interfaces/userInterface';
+import { IUserInt } from '../../interfaces/userInterface';
 const user = new mongoose.Schema({
     email: {
-        type: String,
         required: true,
+        type: String,
         unique: true,
     },
+    level: {
+        default: 0,
+        type: Number,
+    },
     password: {
-        type: String,
         required: true,
+        type: String,
     },
     validated: {
-        type: Boolean,
         default: false,
-    },
-    level: {
-        type: Number,
-        default: 0,
+        type: Boolean,
     },
 });
 
-user.pre<userInt>('save', function(next) {
+user.pre<IUserInt>('save', function(next) {
     this.password = bcrypt.hashSync(this.password, 10);
     next();
 });

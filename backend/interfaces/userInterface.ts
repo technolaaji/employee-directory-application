@@ -1,8 +1,8 @@
 import mongoose from 'mongoose';
 
-export interface userInt extends mongoose.Document {
-    email: String;
-    password: String;
-    validated: Boolean;
-    level: Number;
+export interface IUserInt extends mongoose.Document {
+    email: string;
+    password: string;
+    validated: boolean;
+    level: number;
 }

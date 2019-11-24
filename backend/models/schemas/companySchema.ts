@@ -1,13 +1,13 @@
 import mongoose from 'mongoose';
 
 const company = new mongoose.Schema({
+    country: String,
+    location: String,
     name: {
-        type: String,
         required: true,
+        type: String,
         unique: true,
     },
-    location: String,
-    country: String,
     phone: Number,
     // expertise: [{
     //     type: mongoose.Schema.Types.ObjectId,

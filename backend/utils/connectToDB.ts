@@ -1,16 +1,17 @@
+import * as log from 'loglevel';
 import mongoose from 'mongoose';
 import chalkConfig from './chalkConfig';
 
 export const connectToDB = () => {
     mongoose.connect(String(process.env.MONGO_URL), {
+        useCreateIndex: true,
+        useFindAndModify: false,
         useNewUrlParser: true,
         useUnifiedTopology: true,
-        useFindAndModify: false,
-        useCreateIndex: true,
     });
 
     mongoose.connection.on('connected', () => {
-        console.log(
+        log.warn(
             chalkConfig.success(
                 'Mongoose is connected properly to your MongoDB database.'
             )
@@ -18,16 +19,16 @@ export const connectToDB = () => {
     });
 
     mongoose.connection.on('error', err => {
-        console.log(
+        log.warn(
             chalkConfig.error(
                 "Mongoose couldn't connect to your MongoDB database"
             )
         );
-        console.log(chalkConfig.info(err));
+        log.warn(chalkConfig.info(err));
     });
 
     mongoose.connection.on('disconnected', () => {
-        console.log(
+        log.warn(
             chalkConfig.danger(
                 'Mongoose has disconnected from your MongoDB database'
             )

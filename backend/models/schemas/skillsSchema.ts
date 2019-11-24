@@ -2,8 +2,8 @@ import mongoose from 'mongoose';
 
 const skill = new mongoose.Schema({
     title: {
-        type: String,
         required: true,
+        type: String,
         unique: true,
     },
 });

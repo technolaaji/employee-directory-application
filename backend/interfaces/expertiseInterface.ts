@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
 
-export interface expertiseInterface extends mongoose.Document {
-    title: String;
+export interface IExpertiseInterface extends mongoose.Document {
+    title: string;
 }

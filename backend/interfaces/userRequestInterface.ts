@@ -1,5 +1,5 @@
 import { Request } from 'express';
 
-export interface userRequestInterface extends Request {
-    email: String;
+export interface IUserRequestInterface extends Request {
+    email: string;
 }

@@ -1,6 +1,6 @@
 import bcrypt from 'bcrypt';
 import express from 'express';
-import { userRequestInterface } from '../../interfaces/userRequestInterface';
+import * as log from 'loglevel';
 import employeeModel from '../../models/modelFunctions/employeeModelFunction';
 import userModel from '../../models/modelFunctions/userModelFunction';
 import chalkConfig from '../../utils/chalkConfig';
@@ -26,11 +26,11 @@ export default async (req: express.Request, res: express.Response) => {
             }
         );
         return res.json({
-            status: 200,
             message: 'success',
+            status: 200,
         });
     } catch (err) {
-        console.log(chalkConfig.danger(err));
+        log.warn(chalkConfig.danger(err));
         res.status(400).json(err);
     }
 };

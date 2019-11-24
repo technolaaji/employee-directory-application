@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { employeeInterface } from '../../interfaces/employeeInterface';
+import { IEmployeeInterface } from '../../interfaces/employeeInterface';
 import employeeSchema from '../schemas/employeeSchema';
 
-export default mongoose.model<employeeInterface>('employee', employeeSchema);
+export default mongoose.model<IEmployeeInterface>('employee', employeeSchema);

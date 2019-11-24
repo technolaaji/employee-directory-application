@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { userInt } from '../../interfaces/userInterface';
+import { IUserInt } from '../../interfaces/userInterface';
 import userSchema from '../schemas/userSchema';
 
-export default mongoose.model<userInt>('user', userSchema);
+export default mongoose.model<IUserInt>('user', userSchema);

@@ -1,8 +1,7 @@
 import { Request, Response } from 'express';
-import { unionBy } from 'lodash';
+import * as log from 'loglevel';
 import company from '../../models/modelFunctions/companyModelFunction';
 import chalkConfig from '../../utils/chalkConfig';
-import { escapeRegex } from '../../utils/escapeRegex';
 
 export default async (req: Request, res: Response) => {
     try {
@@ -29,7 +28,7 @@ export default async (req: Request, res: Response) => {
         const data = await company.find(query).limit(req.body.count);
         res.json(data);
     } catch (err) {
-        console.log(chalkConfig.danger(err));
+        log.warn(chalkConfig.danger(err));
         res.status(400).json(err);
     }
 };

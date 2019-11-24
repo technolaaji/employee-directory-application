@@ -1,4 +1,5 @@
 import express from 'express';
+import * as log from 'loglevel';
 import user from '../../models/modelFunctions/userModelFunction';
 import chalkConfig from '../../utils/chalkConfig';
 import userJoi from './authJoiSchema/authJoiSchema';
@@ -14,7 +15,7 @@ export default async (req: express.Request, res: express.Response) => {
         });
         // add email verification
     } catch (err) {
-        console.log(chalkConfig.danger(err));
+        log.warn(chalkConfig.danger(err));
         res.json(err);
     }
 };

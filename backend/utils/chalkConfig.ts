@@ -1,8 +1,8 @@
 import chalk from 'chalk';
 
 export default {
-    success: chalk.bold.green,
-    error: chalk.bold.yellow,
     danger: chalk.bold.red,
+    error: chalk.bold.yellow,
     info: chalk.bold.cyan,
+    success: chalk.bold.green,
 };

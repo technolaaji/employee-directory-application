@@ -1,6 +1,7 @@
 import bcrypt from 'bcrypt';
 import express from 'express';
 import jwt from 'jsonwebtoken';
+import * as log from 'loglevel';
 import userModel from '../../models/modelFunctions/userModelFunction';
 import chalkConfig from '../../utils/chalkConfig';
 
@@ -8,7 +9,7 @@ export default async (req: express.Request, res: express.Response) => {
     try {
         await userModel.findOne(
             { email: req.body.email },
-            async (err, user) => {
+            async (errF, user) => {
                 if (!user) {
                     res.status(400).json({
                         message: 'kindly provide right credentials',
@@ -19,7 +20,7 @@ export default async (req: express.Request, res: express.Response) => {
                         String(user.password),
                         (err, result) => {
                             if (!result) {
-                                console.log(chalkConfig.danger(err));
+                                log.warn(chalkConfig.danger(err));
                                 res.status(400).json({
                                     message: 'kindly provide right credentials',
                                 });
@@ -30,10 +31,10 @@ export default async (req: express.Request, res: express.Response) => {
                                     {
                                         expiresIn: '1d',
                                     },
-                                    async (err, token) => {
+                                    async (errin, token) => {
                                         return res.json({
-                                            status: 200,
                                             email: req.body.email,
+                                            status: 200,
                                             token,
                                         });
                                     }
@@ -45,7 +46,7 @@ export default async (req: express.Request, res: express.Response) => {
             }
         );
     } catch (err) {
-        console.log(chalkConfig.danger(err));
+        log.warn(chalkConfig.danger(err));
         res.status(400).json(err);
     }
 };

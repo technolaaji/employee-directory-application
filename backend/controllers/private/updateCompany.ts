@@ -1,4 +1,5 @@
 import express from 'express';
+import * as log from 'loglevel';
 import company from '../../models/modelFunctions/companyModelFunction';
 import chalkConfig from '../../utils/chalkConfig';
 import companyJoi from './privateJoiSchemas/companyJoiSchema';
@@ -6,11 +7,11 @@ import companyJoi from './privateJoiSchemas/companyJoiSchema';
 export default async (req: express.Request, res: express.Response) => {
     try {
         const validate = await companyJoi.validateAsync({
-            name: req.body.name,
-            location: req.body.location,
             country: req.body.country,
-            phone: req.body.phone,
             expertise: req.body.expertise,
+            location: req.body.location,
+            name: req.body.name,
+            phone: req.body.phone,
         });
         const companyData = await company.findOneAndUpdate(
             { name: req.body.refName },
@@ -18,11 +19,11 @@ export default async (req: express.Request, res: express.Response) => {
             { new: true }
         );
         res.json({
-            status: 200,
             data: companyData,
+            status: 200,
         });
     } catch (err) {
-        console.log(chalkConfig.danger(err));
+        log.warn(chalkConfig.danger(err));
         res.status(400).json(err);
     }
 };

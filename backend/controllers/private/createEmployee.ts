@@ -1,4 +1,5 @@
 import express from 'express';
+import * as log from 'loglevel';
 import employee from '../../models/modelFunctions/employeeModelFunction';
 import chalkConfig from '../../utils/chalkConfig';
 import employeeJoi from './privateJoiSchemas/employeeJoiSchema';
@@ -6,13 +7,13 @@ import employeeJoi from './privateJoiSchemas/employeeJoiSchema';
 export default async (req: express.Request, res: express.Response) => {
     try {
         const validate = await employeeJoi.validateAsync({
-            firstName: req.body.firstName,
-            middleName: req.body.middleName,
-            lastName: req.body.lastName,
-            jobTitle: req.body.jobTitle,
-            picture: req.body.picture,
-            location: req.body.location,
             email: req.body.email,
+            firstName: req.body.firstName,
+            jobTitle: req.body.jobTitle,
+            lastName: req.body.lastName,
+            location: req.body.location,
+            middleName: req.body.middleName,
+            picture: req.body.picture,
         });
         await employee.create(validate);
         const employeeData = await employee
@@ -20,7 +21,7 @@ export default async (req: express.Request, res: express.Response) => {
             .exec();
         res.json(employeeData);
     } catch (err) {
-        console.log(chalkConfig.danger(err));
+        log.warn(chalkConfig.danger(err));
         res.status(400).json(err);
     }
 };

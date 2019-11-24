@@ -1,4 +1,5 @@
 import express from 'express';
+import * as log from 'loglevel';
 import expertise from '../../models/modelFunctions/expertiseModelFunction';
 import chalkConfig from '../../utils/chalkConfig';
 import expertiseJoi from './privateJoiSchemas/expertiseJoiSchema';
@@ -14,11 +15,11 @@ export default async (req: express.Request, res: express.Response) => {
             { new: true }
         );
         res.json({
-            status: 200,
             expertise: expertiseData,
+            status: 200,
         });
     } catch (err) {
-        console.log(chalkConfig.danger(err));
+        log.warn(chalkConfig.danger(err));
         res.json(400).json(err);
     }
 };
