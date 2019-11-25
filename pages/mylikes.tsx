@@ -67,6 +67,11 @@ const MyLikes = () => {
                             }
                         })}
                     </div>
+                    {payload.length === 0 &&
+                    searchType !== 'none' &&
+                    searchType !== '' ? (
+                        <h1>No Results found 😥</h1>
+                    ) : null}
                 </div>
             </div>
         </Layout>
