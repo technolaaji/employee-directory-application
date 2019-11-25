@@ -9,6 +9,6 @@ router.post('/create', createCompany);
 
 router.put('/update', updateCompany);
 
-router.delete('/delete', deleteCompany);
+router.post('/delete', deleteCompany);
 
 export default router;

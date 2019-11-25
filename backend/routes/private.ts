@@ -13,7 +13,7 @@ const router: express.Router = express.Router();
 router.use(validateMiddleware);
 
 router.use('/employee', verifiedMiddleware, privateEmployeeRoute);
-router.use('/company', authorityMiddleware, privateCompanyRoute);
+router.use('/company', verifiedMiddleware, privateCompanyRoute);
 router.use('/expertise', authorityMiddleware, privateExpertiseRoute);
 router.use('/skill', authorityMiddleware, privateSkillRoute);
 router.use('/like', privateLikeRoute);

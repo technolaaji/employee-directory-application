@@ -9,6 +9,6 @@ router.post('/create', createEmployee);
 
 router.put('/update', updateEmployee);
 
-router.delete('/delete', deleteEmployee);
+router.post('/delete', deleteEmployee);
 
 export default router;

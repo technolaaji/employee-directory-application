@@ -6,7 +6,7 @@ export default Joi.object({
     firstName: Joi.string().required(),
     jobTitle: Joi.string().required(),
     lastName: Joi.string().required(),
-    location: Joi.string().required(),
+    location: Joi.string(),
     middleName: Joi.string(),
     picture: Joi.string(),
 });

@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Container } from 'react-bootstrap';
 import { mainCont } from '../styles/SearchStyle';
 import EmployeeCard from './EmployeeCard';
+import CompanyCard from './CompanyCard';
 
 const SearchSection = () => {
     const [searchType, updateType] = useState('employee');
@@ -10,9 +11,35 @@ const SearchSection = () => {
     const [searchValue, updateSearch] = useState('');
     const valueChanger = (e: any) => {
         updateType(e.target.value);
+        payloadUpdater([]);
     };
     const searchChanger = (e: any) => {
         updateSearch(e.target.value);
+    };
+    const invokerFetcher = async () => {
+        if (searchType === 'employee') {
+            const res = await fetch('/public/employee/search', {
+                body: JSON.stringify({ search: searchValue }),
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                method: 'POST',
+                mode: 'cors',
+            });
+            const data = await res.json();
+            payloadUpdater(data);
+        } else {
+            const res = await fetch('/public/company/search', {
+                body: JSON.stringify({ search: searchValue }),
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                method: 'POST',
+                mode: 'cors',
+            });
+            const data = await res.json();
+            payloadUpdater(data);
+        }
     };
     const searchFetcher = async (e: any) => {
         e.preventDefault();
@@ -79,16 +106,33 @@ const SearchSection = () => {
                 <div className="card-columns">
                     {payload !== null &&
                         payload.map((item: any, index: number) => {
-                            return (
-                                <EmployeeCard
-                                    key={index}
-                                    firstName={item.firstName}
-                                    lastName={item.lastName}
-                                    image={item.picture}
-                                    description={item.description}
-                                    who={item._id}
-                                />
-                            );
+                            if (searchType === 'employee') {
+                                return (
+                                    <EmployeeCard
+                                        key={index}
+                                        firstName={item.firstName}
+                                        lastName={item.lastName}
+                                        image={item.picture}
+                                        description={item.description}
+                                        who={item._id}
+                                        job={item.jobTitle}
+                                        email={item.email}
+                                        invoker={invokerFetcher}
+                                    />
+                                );
+                            } else {
+                                return (
+                                    <CompanyCard
+                                        key={index}
+                                        name={item.name}
+                                        image={item.picture}
+                                        description={item.description}
+                                        who={item._id}
+                                        invoker={invokerFetcher}
+                                        email={item.email}
+                                    />
+                                );
+                            }
                         })}
                 </div>
             </Container>

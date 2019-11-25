@@ -21,25 +21,20 @@ const customStyles = {
         transform: 'translate(-50%, -50%)',
     },
 };
-
-const EmployeeCard = (props: {
-    firstName?: string;
-    lastName?: string;
+const CompanyCard = (props: {
+    name?: string;
     description?: string;
     image?: string;
     who?: string;
-    job?: string;
-    email?: string;
     invoker?: any;
+    email?: string;
 }) => {
     const [modalIsOpen, setIsOpen] = useState(false);
     const alert = useAlert();
     const [formData, updateData] = useState({
         description: '',
         email: props.email,
-        firstName: '',
-        jobTitle: '',
-        lastName: '',
+        name: '',
         picture: '',
     });
     const valueUpdater: any = (e: any) => {
@@ -58,7 +53,7 @@ const EmployeeCard = (props: {
     }
     const deleteCard = () => {
         axios
-            .post('/private/employee/delete', formData, config)
+            .post('/private/company/delete', formData, config)
             .then(() => {
                 props.invoker();
             })
@@ -69,7 +64,7 @@ const EmployeeCard = (props: {
     const valueSubmit = (e: any) => {
         e.preventDefault();
         axios
-            .put('/private/employee/update', formData, config)
+            .put('/private/company/update', formData, config)
             .then(() => {
                 closeModal();
                 props.invoker();
@@ -81,7 +76,7 @@ const EmployeeCard = (props: {
     return (
         <div className="card">
             <div className={likeIcon}>
-                <LikeButton who={props.who} type="employee" />
+                <LikeButton who={props.who} type="company" />
             </div>
             <img
                 src={props.image}
@@ -90,9 +85,7 @@ const EmployeeCard = (props: {
                 style={{ maxHeight: '200px' }}
             />
             <div className="card-body">
-                <h5 className="card-title">
-                    {props.firstName} {props.lastName} - {props.job}
-                </h5>
+                <h5 className="card-title">{props.name}</h5>
                 <p className="card-text">{props.description}</p>
                 <button className="btn btn-primary" onClick={openModal}>
                     Update
@@ -111,25 +104,15 @@ const EmployeeCard = (props: {
                         <h1 className="h3 mb-3 font-weight-normal">
                             Update employee
                         </h1>
-                        <label className="sr-only">First Name</label>
+                        <label className="sr-only">Name</label>
                         <input
                             onChange={valueUpdater}
-                            value={formData.firstName}
+                            value={formData.name}
                             type="text"
-                            name="firstName"
+                            name="name"
                             id="inputEmail"
                             className="form-control my-2"
                             placeholder="First Name"
-                        />
-                        <label className="sr-only">Last Name</label>
-                        <input
-                            onChange={valueUpdater}
-                            value={formData.lastName}
-                            type="text"
-                            name="lastName"
-                            id="inputEmail"
-                            className="form-control my-2"
-                            placeholder="Last Name"
                         />
                         <label className="sr-only">Image Url</label>
                         <input
@@ -141,16 +124,7 @@ const EmployeeCard = (props: {
                             className="form-control my-2"
                             placeholder="Image Url"
                         />
-                        <label className="sr-only">Job Title</label>
-                        <input
-                            onChange={valueUpdater}
-                            value={formData.jobTitle}
-                            type="text"
-                            name="jobTitle"
-                            id="inputEmail"
-                            className="form-control my-2"
-                            placeholder="Job Title"
-                        />
+
                         <label className="sr-only">Description</label>
                         <textarea
                             onChange={valueUpdater}
@@ -174,4 +148,4 @@ const EmployeeCard = (props: {
     );
 };
 
-export default EmployeeCard;
+export default CompanyCard;

@@ -1,7 +1,7 @@
 import Joi from '@hapi/joi';
 
 export default Joi.object({
-    country: Joi.string().required(),
+    country: Joi.string(),
     description: Joi.string(),
     email: Joi.string()
         .email()

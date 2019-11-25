@@ -8,13 +8,15 @@ export default async (req: express.Request, res: express.Response) => {
     try {
         const validate = await companyJoi.validateAsync({
             country: req.body.country,
-            expertise: req.body.expertise,
+            description: req.body.description,
+            email: req.body.email,
+            image: req.body.image,
             location: req.body.location,
             name: req.body.name,
             phone: req.body.phone,
         });
         const companyData = await company.findOneAndUpdate(
-            { email: req.body.refMail },
+            { email: req.body.email },
             validate,
             { new: true }
         );
