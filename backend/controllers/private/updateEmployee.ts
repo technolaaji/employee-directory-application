@@ -7,17 +7,16 @@ import employeeJoi from './privateJoiSchemas/employeeJoiSchema';
 export default async (req: express.Request, res: express.Response) => {
     try {
         const validate = await employeeJoi.validateAsync({
-            company: req.body.company,
-            firstName: req.body.firstName,
-            jobTitle: req.body.jobTitle,
-            lastName: req.body.lastName,
+            country: req.body.country,
+            description: req.body.description,
+            email: req.body.email,
+            image: req.body.image,
             location: req.body.location,
-            middleName: req.body.middleName,
-            picture: req.body.picture,
-            skills: req.body.skills,
+            name: req.body.name,
+            phone: req.body.phone,
         });
         const employeeData = await employee.findOneAndUpdate(
-            { email: req.body.email },
+            { email: req.body.refEmail },
             validate,
             { new: true }
         );

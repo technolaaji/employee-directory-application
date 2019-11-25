@@ -14,7 +14,7 @@ export default async (req: express.Request, res: express.Response) => {
             phone: req.body.phone,
         });
         const companyData = await company.findOneAndUpdate(
-            { name: req.body.refName },
+            { email: req.body.refMail },
             validate,
             { new: true }
         );

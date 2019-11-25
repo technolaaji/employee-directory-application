@@ -4,7 +4,7 @@ import company from '../../models/modelFunctions/companyModelFunction';
 import chalkConfig from '../../utils/chalkConfig';
 export default async (req: express.Request, res: express.Response) => {
     try {
-        await company.findOneAndDelete({ name: req.body.name });
+        await company.findOneAndDelete({ email: req.body.email });
         res.json({
             message: 'success',
             status: 200,

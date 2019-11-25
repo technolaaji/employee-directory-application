@@ -7,6 +7,7 @@ import employeeJoi from './privateJoiSchemas/employeeJoiSchema';
 export default async (req: express.Request, res: express.Response) => {
     try {
         const validate = await employeeJoi.validateAsync({
+            description: req.body.description,
             email: req.body.email,
             firstName: req.body.firstName,
             jobTitle: req.body.jobTitle,
