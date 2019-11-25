@@ -3,7 +3,7 @@ import { positions, Provider as AlertProvider, transitions } from 'react-alert';
 import AlertTemplate from 'react-alert-template-basic';
 import { Nav, Navbar } from 'react-bootstrap';
 import { NavbarText } from '../styles/NavbarStyle';
-import { validity, deleteToken } from '../util/token';
+import { deleteToken, validity } from '../util/token';
 import Header from './Header';
 const options = {
     // you can also just use 'bottom center'

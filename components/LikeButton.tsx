@@ -48,7 +48,6 @@ const LikeButton = (props: any) => {
     };
     useEffect(() => {
         if (validity()) {
-            console.log(config);
             axios
                 .post(
                     '/private/like/check',
@@ -59,7 +58,6 @@ const LikeButton = (props: any) => {
                     config
                 )
                 .then(res => {
-                    console.log(res);
                     updateStatus(res.data.status);
                 });
         }
