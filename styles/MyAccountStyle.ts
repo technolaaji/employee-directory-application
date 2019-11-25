@@ -9,3 +9,9 @@ export const mainDiv = css`
 export const mainHeader = css`
     margin-bottom: 100px;
 `;
+
+export const likesCont = css`
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+`;

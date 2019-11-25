@@ -50,7 +50,6 @@ const UpdatePassword = () => {
         axios
             .put('/auth/update/password', formData, config)
             .then(res => {
-                console.log(res);
                 alert.show('Password updated successfully!');
                 closeModal();
             })
