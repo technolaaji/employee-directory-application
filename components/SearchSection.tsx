@@ -86,6 +86,7 @@ const SearchSection = () => {
                                     lastName={item.lastName}
                                     image={item.picture}
                                     description={item.description}
+                                    who={item._id}
                                 />
                             );
                         })}

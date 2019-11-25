@@ -1,13 +1,15 @@
 import { likeIcon } from '../styles/SearchStyle';
+import LikeButton from './LikeButton';
 const EmployeeCard = (props: {
     firstName?: string;
     lastName?: string;
     description?: string;
     image?: string;
+    who?: string;
 }) => (
     <div className="card">
         <div className={likeIcon}>
-            <i className="fa fa-heart"></i>
+            <LikeButton who={props.who} type="employee" />
         </div>
         <img
             src={props.image}
