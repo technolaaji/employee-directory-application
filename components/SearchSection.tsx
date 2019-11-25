@@ -2,8 +2,8 @@ import fetch from 'isomorphic-unfetch';
 import { useState } from 'react';
 import { Container } from 'react-bootstrap';
 import { mainCont } from '../styles/SearchStyle';
-import EmployeeCard from './EmployeeCard';
 import CompanyCard from './CompanyCard';
+import EmployeeCard from './EmployeeCard';
 
 const SearchSection = () => {
     const [searchType, updateType] = useState('employee');

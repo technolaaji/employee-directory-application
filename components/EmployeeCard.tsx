@@ -35,12 +35,12 @@ const EmployeeCard = (props: {
     const [modalIsOpen, setIsOpen] = useState(false);
     const alert = useAlert();
     const [formData, updateData] = useState({
-        description: '',
+        description: props.description,
         email: props.email,
-        firstName: '',
-        jobTitle: '',
-        lastName: '',
-        picture: '',
+        firstName: props.firstName,
+        jobTitle: props.job,
+        lastName: props.lastName,
+        picture: props.image,
     });
     const valueUpdater: any = (e: any) => {
         updateData({ ...formData, [e.target.name]: e.target.value });

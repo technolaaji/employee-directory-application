@@ -32,10 +32,10 @@ const CompanyCard = (props: {
     const [modalIsOpen, setIsOpen] = useState(false);
     const alert = useAlert();
     const [formData, updateData] = useState({
-        description: '',
+        description: props.description,
         email: props.email,
-        name: '',
-        picture: '',
+        name: props.name,
+        picture: props.image,
     });
     const valueUpdater: any = (e: any) => {
         updateData({ ...formData, [e.target.name]: e.target.value });
@@ -87,12 +87,20 @@ const CompanyCard = (props: {
             <div className="card-body">
                 <h5 className="card-title">{props.name}</h5>
                 <p className="card-text">{props.description}</p>
-                <button className="btn btn-primary" onClick={openModal}>
-                    Update
-                </button>
-                <button className="btn btn-danger mx-1" onClick={deleteCard}>
-                    Delete
-                </button>
+                {validity() ? (
+                    <button className="btn btn-primary" onClick={openModal}>
+                        Update
+                    </button>
+                ) : null}
+                {validity() ? (
+                    <button
+                        className="btn btn-danger mx-1"
+                        onClick={deleteCard}
+                    >
+                        Delete
+                    </button>
+                ) : null}
+
                 <Modal
                     isOpen={modalIsOpen}
                     onAfterOpen={afterOpenModal}
@@ -102,7 +110,7 @@ const CompanyCard = (props: {
                 >
                     <form className="form-signin" onSubmit={valueSubmit}>
                         <h1 className="h3 mb-3 font-weight-normal">
-                            Update employee
+                            Update company
                         </h1>
                         <label className="sr-only">Name</label>
                         <input
