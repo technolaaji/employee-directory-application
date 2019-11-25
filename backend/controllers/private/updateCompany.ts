@@ -10,10 +10,10 @@ export default async (req: express.Request, res: express.Response) => {
             country: req.body.country,
             description: req.body.description,
             email: req.body.email,
-            image: req.body.image,
             location: req.body.location,
             name: req.body.name,
             phone: req.body.phone,
+            picture: req.body.picture,
         });
         const companyData = await company.findOneAndUpdate(
             { email: req.body.email },

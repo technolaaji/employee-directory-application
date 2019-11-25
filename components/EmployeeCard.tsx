@@ -94,12 +94,20 @@ const EmployeeCard = (props: {
                     {props.firstName} {props.lastName} - {props.job}
                 </h5>
                 <p className="card-text">{props.description}</p>
-                <button className="btn btn-primary" onClick={openModal}>
-                    Update
-                </button>
-                <button className="btn btn-danger mx-1" onClick={deleteCard}>
-                    Delete
-                </button>
+                {validity() ? (
+                    <button className="btn btn-primary" onClick={openModal}>
+                        Update
+                    </button>
+                ) : null}
+                {validity() ? (
+                    <button
+                        className="btn btn-danger mx-1"
+                        onClick={deleteCard}
+                    >
+                        Delete
+                    </button>
+                ) : null}
+
                 <Modal
                     isOpen={modalIsOpen}
                     onAfterOpen={afterOpenModal}

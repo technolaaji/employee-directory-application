@@ -6,10 +6,10 @@ export default Joi.object({
     email: Joi.string()
         .email()
         .required(),
-    image: Joi.string(),
     location: Joi.string(),
     name: Joi.string().required(),
     phone: Joi.number(),
+    picture: Joi.string(),
 });
 
 // the main reason why expertise is an array is because a company can be experienced in multiple

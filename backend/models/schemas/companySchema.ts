@@ -8,10 +8,10 @@ const company = new mongoose.Schema({
         type: String,
         unique: true,
     },
-    image: String,
     location: String,
     name: String,
     phone: Number,
+    picture: String,
     // expertise: [{
     //     type: mongoose.Schema.Types.ObjectId,
     //     ref: 'expertise',

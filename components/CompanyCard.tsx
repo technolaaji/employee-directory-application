@@ -120,7 +120,7 @@ const CompanyCard = (props: {
                             name="name"
                             id="inputEmail"
                             className="form-control my-2"
-                            placeholder="First Name"
+                            placeholder="Name"
                         />
                         <label className="sr-only">Image Url</label>
                         <input

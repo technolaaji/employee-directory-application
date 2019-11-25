@@ -67,13 +67,13 @@ const LikeButton = (props: any) => {
             {status ? (
                 <i
                     onClick={likeThat}
-                    style={{ color: 'red', fontSize: 20 }}
+                    style={{ color: 'black', fontSize: 20 }}
                     className="fas fa-heart"
                 ></i>
             ) : (
                 <i
                     onClick={likeThat}
-                    style={{ color: 'white', fontSize: 20 }}
+                    style={{ color: 'black', fontSize: 20 }}
                     className="far fa-heart"
                 ></i>
             )}

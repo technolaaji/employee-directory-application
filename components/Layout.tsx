@@ -25,7 +25,7 @@ const Layout = (props: { children: any }) => (
                 <Navbar.Collapse className="justify-content-end">
                     <Nav>
                         {validity() ? (
-                            <Link href="/signup">
+                            <Link href="/myaccount">
                                 <p className={NavbarText}>my account</p>
                             </Link>
                         ) : (
