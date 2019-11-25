@@ -87,7 +87,7 @@ const EmployeeCard = (props: {
                 src={props.image}
                 className="card-img-top"
                 alt="..."
-                style={{ maxHeight: '200px' }}
+                style={{ maxHeight: '200px', objectFit: 'contain' }}
             />
             <div className="card-body">
                 <h5 className="card-title">
