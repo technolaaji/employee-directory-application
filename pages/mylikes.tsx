@@ -2,10 +2,10 @@ import axios from 'axios';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import Layout from '../components/Layout';
-import { mainDiv, mainHeader, likesCont } from '../styles/MyAccountStyle';
-import { validity, getToken } from '../util/token';
-import EmployeeLooper from '../components/mylikesComponents/EmployeeLooper';
 import CompanyLooper from '../components/mylikesComponents/CompanyLooper';
+import EmployeeLooper from '../components/mylikesComponents/EmployeeLooper';
+import { likesCont, mainDiv, mainHeader } from '../styles/MyAccountStyle';
+import { getToken, validity } from '../util/token';
 
 const config = {
     headers: {

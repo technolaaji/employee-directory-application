@@ -26,7 +26,6 @@ const CompanyLooper = (props: { id: string }) => {
                 config
             )
             .then(res => {
-                console.log(res.data.payload);
                 setData(res.data.payload);
             });
     }, []);
